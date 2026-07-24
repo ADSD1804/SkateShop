@@ -1,24 +1,14 @@
-const fastify = require("fastify")({
-  logger: true,
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
+
+mongoose.connect("mongodb://localhost/skateshop", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
-// Importar rutas de productos
-const productsRoutes = require("./routes/productsRoutes");
+const db = mongoose.connection;
+db.on("error", (error) => console.error("connection error:", error));
+db.once("open", () => console.log("Connected to Database"));
 
-require("./utils/mongoose");
-
-fastify.get("/", (request, reply) => {
-  reply.send({ hello: "SkateShop Backend is running!" });
-});
-
-// Recorrer rutas de productos
-productsRoutes.forEach((route) => {
-  fastify.route(route);
-});
-
-const start = async () => {
-  await fastify.listen({ port: 3000, host: "localhost" });
-  fastify.log.info(`server listening on ${fastify.server.address().port}`);
-};
-
-start();
+app.listen(3000, () => console.log("Server is running on port 3000"));
