@@ -12,9 +12,9 @@
   "dependencies": {
     "bootstrap": "^5.3.8",
     "hamburger-react": "^2.5.2",
-    "react": "^19.2.7",
     "react-burger-menu": "^3.1.0",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "react-router": "^8.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
