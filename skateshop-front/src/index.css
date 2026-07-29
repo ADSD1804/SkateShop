@@ -1,3 +1,4 @@
+/* Estilos globales */
 * {
   margin: 0;
   padding: 0;
@@ -6,20 +7,103 @@
 
 body {
   min-height: 100vh;
-  background-color: #ffe2f8;
+  background-color: #9fa7ff;
   margin: auto;
   align-items: center;
   justify-content: center;
 }
 
+/* Estilos de la vista de productos */
 .containerCard {
   width: 80%;
   max-width: 1200px;
   padding: 20px;
   height: 100vh;
-  background-color: #fcf8fd;
+  background-color: #a8cbfd;
 }
 
 .card {
-  background-color: #a3e8ff;
+  background-color: #6781be;
+}
+
+/* Estilos de barra de navegación */
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #307473;
+  padding: 1rem 2rem;
+  color: rgb(181, 179, 179);
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #828eff;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle .bar {
+  width: 25px;
+  height: 3px;
+  margin-left: 50px;
+  background-color: rgb(181, 179, 179);
+}
+
+/* Estilos de la vista de página no encontrada */
+.containerError {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  margin-top: 150px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 130px;
+    right: 0;
+    background-color: #286268;
+    width: 30%;
+    padding: 1rem 0;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
 }
